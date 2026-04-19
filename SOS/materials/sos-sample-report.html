@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOS Student Report — Priya (sample)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-title: 'Libre Baskerville', Georgia, serif;
+  --font-body: 'IBM Plex Sans', -apple-system, system-ui, sans-serif;
+
+  --thread-renergence: #0D1164;
+  --thread-hnr: #640D5F;
+  --thread-engagement: #EA2264;
+  --thread-mn: #F78D60;
+  --thread-mn-deep: #C96B3C;
+  --accent-mn: #FFB088;
+
+  --text-primary: #1e1a28;
+  --text-body: #383340;
+  --text-secondary: #706878;
+  --text-muted: #6b6272;
+
+  --surface-page: #f7f4f6;
+  --surface-card: #ffffff;
+  --surface-panel: #eeebef;
+  --surface-panel-mn: #f7e8d8;
+
+  --border: #e4dde2;
+  --divider: #dad4d8;
+
+  --good: #2d7d4f;
+  --warn: #a06a00;
+  --bad: #b42a2a;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 15px; }
+body {
+  font-family: var(--font-body);
+  color: var(--text-body);
+  background: var(--surface-page);
+  line-height: 1.5;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 40px 64px;
+}
+
+/* ============================================
+   COVER
+   ============================================ */
+.cover {
+  background: linear-gradient(135deg, var(--thread-renergence) 0%, #1a0d3d 50%, var(--thread-hnr) 100%);
+  color: #fff;
+  padding: 64px 40px 48px;
+  margin: -32px -40px 32px;
+  border-radius: 0 0 12px 12px;
+}
+.cover .kicker {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+.cover h1 {
+  font-family: var(--font-title);
+  font-weight: 400;
+  font-size: 2.25rem;
+  margin: 0 0 8px;
+  line-height: 1.15;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+.cover .cover-meta {
+  display: flex;
+  gap: 24px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+.cover .cover-meta span {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+.cover .cover-meta strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ============================================
+   SECTIONS
+   ============================================ */
+h2 {
+  font-family: var(--font-title);
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin: 48px 0 8px;
+  letter-spacing: -0.005em;
+}
+h2 .section-num {
+  color: var(--thread-mn-deep);
+  font-weight: 700;
+  margin-right: 12px;
+  font-size: 0.85em;
+}
+h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin: 24px 0 12px;
+}
+h4 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--thread-mn-deep);
+  margin: 16px 0 6px;
+}
+.section-lead {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  margin: 0 0 20px;
+}
+
+/* ============================================
+   CARD / PANEL
+   ============================================ */
+.card {
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.panel {
+  background: var(--surface-panel);
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+.panel-mn {
+  background: var(--surface-panel-mn);
+  border-left: 3px solid var(--thread-mn);
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ============================================
+   RECOMMENDATION CARD
+   ============================================ */
+.recco {
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--thread-mn);
+  border-radius: 6px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  break-inside: avoid;
+}
+.recco-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.recco-head .name {
+  font-family: var(--font-title);
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  margin: 0 0 2px;
+}
+.recco-head .loc {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+.recco-head .score {
+  text-align: right;
+  white-space: nowrap;
+}
+.recco-head .score .num {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  color: var(--thread-mn-deep);
+  font-weight: 700;
+}
+.recco-head .score .unit {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+.badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 12px;
+  background: var(--surface-panel);
+  color: var(--text-body);
+}
+.badge.nirf { background: var(--thread-renergence); color: #fff; }
+.badge.naac { background: var(--thread-hnr); color: #fff; }
+.badge.placement { background: var(--good); color: #fff; }
+.badge.salary { background: var(--thread-mn-deep); color: #fff; }
+
+.recco-body p {
+  margin: 8px 0;
+  font-size: 0.9375rem;
+}
+.recco-body .programs {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+.recco-body .programs li {
+  margin: 2px 0;
+}
+
+/* ============================================
+   TABLES
+   ============================================ */
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  margin: 12px 0;
+}
+table.data th,
+table.data td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--divider);
+}
+table.data th {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--surface-panel);
+}
+table.data td.num {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+table.data tr.gap td { color: var(--bad); font-weight: 600; }
+table.data tr.covered td { color: var(--good); font-weight: 600; }
+
+/* ============================================
+   STATUS LISTS
+   ============================================ */
+.status-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.status-list li {
+  padding: 6px 0 6px 28px;
+  position: relative;
+  font-size: 0.9375rem;
+}
+.status-list li.present::before {
+  content: '✓';
+  position: absolute;
+  left: 6px;
+  color: var(--good);
+  font-weight: 700;
+}
+.status-list li.missing::before {
+  content: '!';
+  position: absolute;
+  left: 10px;
+  color: var(--warn);
+  font-weight: 700;
+  font-size: 1.05em;
+}
+.status-list li.missing-high::before {
+  content: '✗';
+  position: absolute;
+  left: 6px;
+  color: var(--bad);
+  font-weight: 700;
+}
+
+/* ============================================
+   CHECKLIST
+   ============================================ */
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: ck;
+}
+.checklist li {
+  padding: 10px 0 10px 40px;
+  position: relative;
+  border-bottom: 1px solid var(--divider);
+  font-size: 0.9375rem;
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  counter-increment: ck;
+  content: counter(ck);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  background: var(--thread-mn-deep);
+  color: #fff;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 0.8125rem;
+}
+
+/* ============================================
+   META GRID
+   ============================================ */
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+.meta-item {
+  padding: 12px 16px;
+  background: var(--surface-panel);
+  border-radius: 4px;
+}
+.meta-item .label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+.meta-item .value {
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* ============================================
+   CLUSTER BAR
+   ============================================ */
+.cluster-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 8px 0;
+}
+.cluster-bar .label {
+  flex: 0 0 220px;
+  font-size: 0.875rem;
+}
+.cluster-bar .bar {
+  flex: 1;
+  height: 10px;
+  background: var(--surface-panel);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.cluster-bar .fill {
+  height: 100%;
+  background: var(--thread-mn);
+  transition: width 0.3s;
+}
+.cluster-bar .score-val {
+  flex: 0 0 50px;
+  text-align: right;
+  font-weight: 600;
+  color: var(--thread-mn-deep);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.875rem;
+}
+
+/* ============================================
+   FOOTER / FINE PRINT
+   ============================================ */
+.fine-print {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--divider);
+}
+.fine-print p { margin: 4px 0; }
+
+/* ============================================
+   PRINT OPTIMIZATION
+   ============================================ */
+@media print {
+  body { background: #fff; }
+  .page { padding: 20px; max-width: 100%; }
+  .cover { margin: 0 -20px 20px; border-radius: 0; }
+  .recco, .card, .panel { break-inside: avoid; }
+  h2 { break-after: avoid; }
+  @page { margin: 18mm; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+
+    <div class="cover">
+      <div class="kicker">Xavigate India Program Matcher</div>
+      <h1>College Recommendations for Priya (sample)</h1>
+      <div class="cover-meta">
+        <span><strong>Student ID:</strong> SOS-KA-0147</span> · <span><strong>Age:</strong> 18</span> · <span><strong>Category:</strong> ORPHAN</span> · <span><strong>Village:</strong> SOS Children's Village Bengaluru</span> · <span><strong>Date:</strong> April 17, 2026</span>
+      </div>
+    </div>
+    
+
+
+    <section>
+      <h2><span class="section-num">1</span>Student Profile</h2>
+      <p class="section-lead">Top Natures and Intelligences from the Xavigate diagnostic, plus the constraints driving this match.</p>
+
+      <h3>Strongest Natures</h3>
+      <div class="meta-grid"><div class="meta-item"><div class="label">healing</div><div class="value">9/10 <span style="font-size:0.8125rem;color:var(--text-muted);font-weight:400">· caring & restoring wellbeing</span></div></div><div class="meta-item"><div class="label">educative</div><div class="value">7/10 <span style="font-size:0.8125rem;color:var(--text-muted);font-weight:400">· teaching & explaining</span></div></div><div class="meta-item"><div class="label">providing</div><div class="value">7/10 <span style="font-size:0.8125rem;color:var(--text-muted);font-weight:400">· ensuring others' material needs</span></div></div></div>
+
+      <h3>Strongest Intelligences</h3>
+      <div class="meta-grid"><div class="meta-item"><div class="label">Interpersonal</div><div class="value">9/10</div></div><div class="meta-item"><div class="label">Naturalistic</div><div class="value">7/10</div></div><div class="meta-item"><div class="label">Intrapersonal</div><div class="value">7/10</div></div></div>
+
+      <h3>Constraints &amp; Context</h3>
+      <div class="card">
+        <table class="data" style="margin: 0;">
+          <tr><td style="color:var(--text-muted);width:200px">State preferences</td><td>Karnataka → Tamil Nadu → Maharashtra</td></tr>
+<tr><td style="color:var(--text-muted);width:200px">Currently in</td><td>Bengaluru, Karnataka</td></tr>
+<tr><td style="color:var(--text-muted);width:200px">Max distance</td><td>500 km</td></tr>
+<tr><td style="color:var(--text-muted);width:200px">Hostel</td><td>Required</td></tr>
+<tr><td style="color:var(--text-muted);width:200px">Financial pressure</td><td>Very High</td></tr>
+<tr><td style="color:var(--text-muted);width:200px">Interests</td><td>medical, healing, nursing</td></tr>
+<tr><td style="color:var(--text-muted);width:200px">Career goals</td><td>Become a nurse or paramedic serving underserved communities</td></tr>
+        </table>
+      </div>
+
+      <h3>Matched Program Clusters</h3>
+      <p class="section-lead" style="margin-bottom: 8px;">How well each program cluster fits this student's Nature × MI profile (0–100).</p>
+      <div class="card">
+        
+        <div class="cluster-bar">
+          <div class="label">Medical Sciences (MBBS, BDS, Nursing, Pharmacy)</div>
+          <div class="bar"><div class="fill" style="width: 75.0%"></div></div>
+          <div class="score-val">75</div>
+        </div>
+        
+        <div class="cluster-bar">
+          <div class="label">Education & Teaching</div>
+          <div class="bar"><div class="fill" style="width: 72.2%"></div></div>
+          <div class="score-val">72</div>
+        </div>
+        
+        <div class="cluster-bar">
+          <div class="label">Arts, Humanities & Social Sciences</div>
+          <div class="bar"><div class="fill" style="width: 70.0%"></div></div>
+          <div class="score-val">70</div>
+        </div>
+        
+        <div class="cluster-bar">
+          <div class="label">Biomedical & Biotechnology Engineering</div>
+          <div class="bar"><div class="fill" style="width: 66.0%"></div></div>
+          <div class="score-val">66</div>
+        </div>
+        
+        <div class="cluster-bar">
+          <div class="label">Environmental & Renewable Energy</div>
+          <div class="bar"><div class="fill" style="width: 62.0%"></div></div>
+          <div class="score-val">62</div>
+        </div>
+        
+      </div>
+    </section>
+    
+
+
+    <section>
+      <h2><span class="section-num">2</span>Documentation Status</h2>
+      <p class="section-lead">Documents the student has in hand, and what's still needed. Missing critical documents block most applications.</p>
+
+      <div class="card">
+        <h4>In hand</h4>
+        <ul class="status-list"><li class="present">Aadhaar</li><li class="present">Birth certificate</li><li class="present">Class 10 marksheet</li><li class="present">Class 12 marksheet</li><li class="present">Income certificate</li><li class="present">Domicile certificate</li><li class="present">Orphan certificate</li></ul>
+
+        
+        <h4>Missing — Supporting (category/scholarship)</h4><ul class="status-list"><li class="missing">Caste certificate</li></ul>
+        <p class="section-lead" style="margin-top:16px"><strong>Coordinator notes:</strong> Caste certificate pending from tahsildar office. Applied 2026-04-01.</p>
+      </div>
+
+      <h3>Action Items</h3>
+      <ol class="checklist"><li><strong>Begin sourcing supporting documents</strong>: Caste certificate. These unlock category-based fee waivers and scholarships.</li></ol>
+    </section>
+    
+
+
+    <section>
+      <h2><span class="section-num">3</span>Financial Plan</h2>
+      <p class="section-lead">Annual cost estimate for each recommended college, matched against available funding sources.</p>
+
+      <div class="panel-mn">
+        <strong>SOS funding:</strong> ₹80,000/yr<br><strong>PM CARES for orphans:</strong> up to ₹2,00,000/yr tuition<br><strong>Eligible scholarships:</strong> pm_cares_orphan, post_matric_sc, central_sector_scheme
+      </div>
+
+      
+        <table class="data">
+          <thead>
+            <tr>
+              <th>College</th>
+              <th>Annual fee</th>
+              <th>PM CARES</th>
+              <th>Scholarship</th>
+              <th>SOS</th>
+              <th>Remaining gap</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr class="covered">
+          <td>AIIMS Bangalore</td>
+          <td class="num">₹1,50,000</td>
+          <td class="num">₹1,50,000</td>
+          <td class="num">—</td>
+          <td class="num">₹0</td>
+          <td class="num">Fully covered</td>
+        </tr>
+        
+        <tr class="covered">
+          <td>MUDALGI EDUCATION SOCIETYS ARTS AND COMMERCE ...</td>
+          <td class="num">₹50,000</td>
+          <td class="num">₹50,000</td>
+          <td class="num">—</td>
+          <td class="num">₹0</td>
+          <td class="num">Fully covered</td>
+        </tr>
+        
+        <tr class="covered">
+          <td>MAHARANIS ARTS COLLEGE FOR WOMEN</td>
+          <td class="num">₹50,000</td>
+          <td class="num">₹50,000</td>
+          <td class="num">₹50,000</td>
+          <td class="num">₹0</td>
+          <td class="num">Fully covered</td>
+        </tr>
+        
+        <tr class="covered">
+          <td>B V BHOOMARADDI COLLEGE OF ARTS SCIENCE AND C...</td>
+          <td class="num">₹50,000</td>
+          <td class="num">₹50,000</td>
+          <td class="num">—</td>
+          <td class="num">₹0</td>
+          <td class="num">Fully covered</td>
+        </tr>
+        
+        <tr class="covered">
+          <td>GOVERNMENT FIRST GRADE COLLEGE OF ARTS SCIENC...</td>
+          <td class="num">₹50,000</td>
+          <td class="num">₹50,000</td>
+          <td class="num">₹50,000</td>
+          <td class="num">₹0</td>
+          <td class="num">Fully covered</td>
+        </tr>
+        
+        <tr class="covered">
+          <td>B.M.S.COLLEGE OF ENGINEERING</td>
+          <td class="num">₹50,000</td>
+          <td class="num">₹50,000</td>
+          <td class="num">—</td>
+          <td class="num">₹0</td>
+          <td class="num">Fully covered</td>
+        </tr>
+        
+        <tr class="covered">
+          <td>KLE TECHNOLOGICAL UNIVERSITY</td>
+          <td class="num">₹50,000</td>
+          <td class="num">₹50,000</td>
+          <td class="num">₹50,000</td>
+          <td class="num">₹0</td>
+          <td class="num">Fully covered</td>
+        </tr>
+        
+        <tr class="covered">
+          <td>JSS SCIENCE AND TECHNOLOGY UNIVERSITY</td>
+          <td class="num">₹50,000</td>
+          <td class="num">₹50,000</td>
+          <td class="num">₹50,000</td>
+          <td class="num">₹0</td>
+          <td class="num">Fully covered</td>
+        </tr>
+        </tbody>
+        </table>
+        <p class="section-lead" style="font-size:0.8125rem; margin-top: 12px;">
+          Fee figures are estimated when college data is unavailable. Verify with each institution before applications.
+        </p>
+        
+    </section>
+    
+
+<section>
+<h2><span class="section-num">4</span>Recommendations</h2>
+<p class="section-lead">Top college matches, ranked by viability (6-gate filter) and quality score (NIRF + placement + accreditation). Grouped by program cluster.</p>
+<h3>Medical Sciences (MBBS, BDS, Nursing, Pharmacy) <span style="color:var(--text-muted); font-weight:400; font-size:0.875rem;">— cluster fit 75/100</span></h3>
+
+            <div class="recco">
+              <div class="recco-head">
+                <div>
+                  <div class="name">AIIMS Bangalore</div>
+                  <div class="loc">Bangalore, Karnataka</div>
+                </div>
+                <div class="score">
+                  <div class="num">176</div>
+                  <div class="unit">quality</div>
+                </div>
+              </div>
+              <div class="badges"><span class="badge nirf">NIRF #2</span><span class="badge placement">96% placed</span><span class="badge salary">avg ₹14.9L</span><span class="badge">Public</span></div>
+              <div class="recco-body">
+                <p style="font-size: 0.9375rem; margin-top: 10px;">Top-50 NIRF ranking signals strong academic reputation and placement outcomes. Strong 96% placement rate reduces post-graduation risk. Institute of National Importance — central government funding enables fee waiver for orphan/EWS students.</p>
+                
+                <p style="font-size: 0.8125rem; color: var(--text-muted); margin-top: 10px;">✓ Passed all 6 viability gates (Documentation, Financial, Hostel, Placement, Location, Academic)</p>
+              </div>
+            </div>
+            
+<h3>Education & Teaching <span style="color:var(--text-muted); font-weight:400; font-size:0.875rem;">— cluster fit 72/100</span></h3>
+
+            <div class="recco">
+              <div class="recco-head">
+                <div>
+                  <div class="name">MUDALGI EDUCATION SOCIETYS ARTS AND COMMERCE COLLEGE MUDALGI</div>
+                  <div class="loc">Karnataka</div>
+                </div>
+                <div class="score">
+                  <div class="num">0</div>
+                  <div class="unit">quality</div>
+                </div>
+              </div>
+              <div class="badges"><span class="badge">Govt Aided</span></div>
+              <div class="recco-body">
+                
+                
+                <p style="font-size: 0.8125rem; color: var(--text-muted); margin-top: 10px;">✓ Passed all 6 viability gates (Documentation, Financial, Hostel, Placement, Location, Academic)</p>
+              </div>
+            </div>
+            
+<h3>Arts, Humanities & Social Sciences <span style="color:var(--text-muted); font-weight:400; font-size:0.875rem;">— cluster fit 70/100</span></h3>
+
+            <div class="recco">
+              <div class="recco-head">
+                <div>
+                  <div class="name">MAHARANIS ARTS COLLEGE FOR WOMEN</div>
+                  <div class="loc">Karnataka</div>
+                </div>
+                <div class="score">
+                  <div class="num">0</div>
+                  <div class="unit">quality</div>
+                </div>
+              </div>
+              <div class="badges"><span class="badge">Government</span></div>
+              <div class="recco-body">
+                <p style="font-size: 0.9375rem; margin-top: 10px;">Government institution — lowest-fee option; major scholarship compatibility.</p>
+                
+                <p style="font-size: 0.8125rem; color: var(--text-muted); margin-top: 10px;">✓ Passed all 6 viability gates (Documentation, Financial, Hostel, Placement, Location, Academic)</p>
+              </div>
+            </div>
+            
+
+            <div class="recco">
+              <div class="recco-head">
+                <div>
+                  <div class="name">B V BHOOMARADDI COLLEGE OF ARTS SCIENCE AND COMMERCE BIDAR</div>
+                  <div class="loc">Karnataka</div>
+                </div>
+                <div class="score">
+                  <div class="num">0</div>
+                  <div class="unit">quality</div>
+                </div>
+              </div>
+              <div class="badges"><span class="badge">Govt Aided</span></div>
+              <div class="recco-body">
+                
+                
+                <p style="font-size: 0.8125rem; color: var(--text-muted); margin-top: 10px;">✓ Passed all 6 viability gates (Documentation, Financial, Hostel, Placement, Location, Academic)</p>
+              </div>
+            </div>
+            
+
+            <div class="recco">
+              <div class="recco-head">
+                <div>
+                  <div class="name">GOVERNMENT FIRST GRADE COLLEGE OF ARTS SCIENCE AND COMMERCE</div>
+                  <div class="loc">Karnataka</div>
+                </div>
+                <div class="score">
+                  <div class="num">0</div>
+                  <div class="unit">quality</div>
+                </div>
+              </div>
+              <div class="badges"><span class="badge">Government</span></div>
+              <div class="recco-body">
+                <p style="font-size: 0.9375rem; margin-top: 10px;">Government institution — lowest-fee option; major scholarship compatibility.</p>
+                
+                <p style="font-size: 0.8125rem; color: var(--text-muted); margin-top: 10px;">✓ Passed all 6 viability gates (Documentation, Financial, Hostel, Placement, Location, Academic)</p>
+              </div>
+            </div>
+            
+<h3>Biomedical & Biotechnology Engineering <span style="color:var(--text-muted); font-weight:400; font-size:0.875rem;">— cluster fit 66/100</span></h3>
+
+            <div class="recco">
+              <div class="recco-head">
+                <div>
+                  <div class="name">B.M.S.COLLEGE OF ENGINEERING</div>
+                  <div class="loc">Bengaluru, Karnataka</div>
+                </div>
+                <div class="score">
+                  <div class="num">31</div>
+                  <div class="unit">quality</div>
+                </div>
+              </div>
+              <div class="badges"><span class="badge nirf">NIRF #69</span><span class="badge">Govt Aided</span></div>
+              <div class="recco-body">
+                
+                <div class="programs"><strong>Matching programs:</strong><ul><li>BIOTECHNOLOGY [UNDER GRADUATE]</li></ul></div>
+                <p style="font-size: 0.8125rem; color: var(--text-muted); margin-top: 10px;">✓ Passed all 6 viability gates (Documentation, Financial, Hostel, Placement, Location, Academic)</p>
+              </div>
+            </div>
+            
+
+            <div class="recco">
+              <div class="recco-head">
+                <div>
+                  <div class="name">KLE TECHNOLOGICAL UNIVERSITY</div>
+                  <div class="loc">Dharwad, Karnataka</div>
+                </div>
+                <div class="score">
+                  <div class="num">0</div>
+                  <div class="unit">quality</div>
+                </div>
+              </div>
+              <div class="badges"><span class="badge nirf">NIRF #136</span><span class="badge">State Private University</span></div>
+              <div class="recco-body">
+                
+                <div class="programs"><strong>Matching programs:</strong><ul><li>BIOTECHNOLOGY [UNDER GRADUATE]</li></ul></div>
+                <p style="font-size: 0.8125rem; color: var(--text-muted); margin-top: 10px;">✓ Passed all 6 viability gates (Documentation, Financial, Hostel, Placement, Location, Academic)</p>
+              </div>
+            </div>
+            
+
+            <div class="recco">
+              <div class="recco-head">
+                <div>
+                  <div class="name">JSS SCIENCE AND TECHNOLOGY UNIVERSITY</div>
+                  <div class="loc">Mysuru, Karnataka</div>
+                </div>
+                <div class="score">
+                  <div class="num">0</div>
+                  <div class="unit">quality</div>
+                </div>
+              </div>
+              <div class="badges"><span class="badge nirf">NIRF #132</span><span class="badge">State Private University</span></div>
+              <div class="recco-body">
+                
+                <div class="programs"><strong>Matching programs:</strong><ul><li>BIOTECHNOLOGY [UNDER GRADUATE]</li><li>BIOTECHNOLOGY [POST GRADUATE]</li></ul></div>
+                <p style="font-size: 0.8125rem; color: var(--text-muted); margin-top: 10px;">✓ Passed all 6 viability gates (Documentation, Financial, Hostel, Placement, Location, Academic)</p>
+              </div>
+            </div>
+            
+<h3>Environmental & Renewable Energy <span style="color:var(--text-muted); font-weight:400; font-size:0.875rem;">— cluster fit 62/100</span></h3>
+
+            <div class="recco">
+              <div class="recco-head">
+                <div>
+                  <div class="name">GOVT POLYTECHNIC CHANNAGIRI</div>
+                  <div class="loc">Karnataka</div>
+                </div>
+                <div class="score">
+                  <div class="num">0</div>
+                  <div class="unit">quality</div>
+                </div>
+              </div>
+              <div class="badges"><span class="badge">Government</span></div>
+              <div class="recco-body">
+                <p style="font-size: 0.9375rem; margin-top: 10px;">Government institution — lowest-fee option; major scholarship compatibility.</p>
+                <div class="programs"><strong>Matching programs:</strong><ul><li>ALTERNATE ENERGY TECHNOLOGIES [DIPLOMA]</li></ul></div>
+                <p style="font-size: 0.8125rem; color: var(--text-muted); margin-top: 10px;">✓ Passed all 6 viability gates (Documentation, Financial, Hostel, Placement, Location, Academic)</p>
+              </div>
+            </div>
+            
+
+            <div class="recco">
+              <div class="recco-head">
+                <div>
+                  <div class="name">SHARNBASVA UNIVERSITY</div>
+                  <div class="loc">Karnataka</div>
+                </div>
+                <div class="score">
+                  <div class="num">0</div>
+                  <div class="unit">quality</div>
+                </div>
+              </div>
+              <div class="badges"><span class="badge">State Private University</span></div>
+              <div class="recco-body">
+                
+                <div class="programs"><strong>Matching programs:</strong><ul><li>ENERGY ENGINEERING [UNDER GRADUATE]</li></ul></div>
+                <p style="font-size: 0.8125rem; color: var(--text-muted); margin-top: 10px;">✓ Passed all 6 viability gates (Documentation, Financial, Hostel, Placement, Location, Academic)</p>
+              </div>
+            </div>
+            
+
+            <div class="recco">
+              <div class="recco-head">
+                <div>
+                  <div class="name">GOVERNMENT POLYTECHNIC GUNNAL</div>
+                  <div class="loc">Karnataka</div>
+                </div>
+                <div class="score">
+                  <div class="num">0</div>
+                  <div class="unit">quality</div>
+                </div>
+              </div>
+              <div class="badges"><span class="badge">Government</span></div>
+              <div class="recco-body">
+                <p style="font-size: 0.9375rem; margin-top: 10px;">Government institution — lowest-fee option; major scholarship compatibility.</p>
+                <div class="programs"><strong>Matching programs:</strong><ul><li>ALTERNATE ENERGY TECHNOLOGIES [DIPLOMA]</li></ul></div>
+                <p style="font-size: 0.8125rem; color: var(--text-muted); margin-top: 10px;">✓ Passed all 6 viability gates (Documentation, Financial, Hostel, Placement, Location, Academic)</p>
+              </div>
+            </div>
+            
+</section>
+
+<section>
+<h2><span class="section-num">5</span>Backup Options</h2>
+<p class="section-lead">Viable colleges beyond the top tier — useful as fallbacks if primary applications don't succeed.</p>
+
+        <table class="data">
+          <thead>
+            <tr>
+              <th>College</th>
+              <th>Location</th>
+              <th>Cluster</th>
+              <th>Ranking</th>
+              <th>Placement</th>
+              <th>Quality</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>LAL BAHADUR ARTS SCIENCE AND S B SOLABANNA SHETTY </td>
+              <td>Karnataka</td>
+              <td>Arts, Humanities & Social Sciences</td>
+              <td class="num">—</td>
+              <td class="num">—</td>
+              <td class="num">0</td>
+            </tr>
+            
+            <tr>
+              <td>ANJUMAN E ISLAMS NEHRU ARTS SCIENCE COMMERCE BBA B</td>
+              <td>Karnataka</td>
+              <td>Arts, Humanities & Social Sciences</td>
+              <td class="num">—</td>
+              <td class="num">—</td>
+              <td class="num">0</td>
+            </tr>
+            
+            <tr>
+              <td>SRI CHANNABASAVESHWAR COLLEGE OF ARTS SCIENCE AND </td>
+              <td>Karnataka</td>
+              <td>Arts, Humanities & Social Sciences</td>
+              <td class="num">—</td>
+              <td class="num">—</td>
+              <td class="num">0</td>
+            </tr>
+            
+            <tr>
+              <td>JSS COLLEGE OF ARTS AND COMMERCE</td>
+              <td>Karnataka</td>
+              <td>Arts, Humanities & Social Sciences</td>
+              <td class="num">—</td>
+              <td class="num">—</td>
+              <td class="num">0</td>
+            </tr>
+            
+            <tr>
+              <td>MUDALGI EDUCATION SOCIETYS ARTS AND COMMERCE COLLE</td>
+              <td>Karnataka</td>
+              <td>Arts, Humanities & Social Sciences</td>
+              <td class="num">—</td>
+              <td class="num">—</td>
+              <td class="num">0</td>
+            </tr>
+            
+            <tr>
+              <td>B V V SANGHA'S BASAVESHWAR ENGINEERING COLLEGE BAG</td>
+              <td>Karnataka</td>
+              <td>Biomedical & Biotechnology Engineering</td>
+              <td class="num">—</td>
+              <td class="num">—</td>
+              <td class="num">0</td>
+            </tr>
+            
+            <tr>
+              <td>GOVERNMENT POLYTECHNIC HALIYAL</td>
+              <td>Karnataka</td>
+              <td>Environmental & Renewable Energy</td>
+              <td class="num">—</td>
+              <td class="num">—</td>
+              <td class="num">0</td>
+            </tr>
+            
+            <tr>
+              <td>GOVERNMENT POLYTECHNIC GAURIBIDANURU</td>
+              <td>Karnataka</td>
+              <td>Environmental & Renewable Energy</td>
+              <td class="num">—</td>
+              <td class="num">—</td>
+              <td class="num">0</td>
+            </tr>
+            
+            <tr>
+              <td>GOVERNMENT POLYTECHNIC, NAGAMANGALA</td>
+              <td>Karnataka</td>
+              <td>Environmental & Renewable Energy</td>
+              <td class="num">—</td>
+              <td class="num">—</td>
+              <td class="num">0</td>
+            </tr>
+            
+            <tr>
+              <td>GOVERNMENT POLYTECHNIC AURAD(B)</td>
+              <td>Karnataka</td>
+              <td>Environmental & Renewable Energy</td>
+              <td class="num">—</td>
+              <td class="num">—</td>
+              <td class="num">0</td>
+            </tr>
+            
+            <tr>
+              <td>SRI JAYACHAMARAJENDRA COLLEGE OF ENGINEERING</td>
+              <td>Mysore, Karnataka</td>
+              <td>Environmental & Renewable Energy</td>
+              <td class="num">NIRF #120</td>
+              <td class="num">—</td>
+              <td class="num">0</td>
+            </tr>
+            </tbody>
+        </table>
+        
+</section>
+
+
+    <section>
+      <h2><span class="section-num">6</span>SOS Coordinator Checklist</h2>
+      <p class="section-lead">Priority actions to support this student's applications. Start with the highest-priority items and track progress.</p>
+
+      <div class="card">
+        <ol class="checklist"><li><strong>Within 30 days:</strong> Begin sourcing Caste certificate for scholarship eligibility.</li><li><strong>Apply for PM CARES for Children</strong> if not already enrolled. Provides up to ₹2,00,000/yr tuition coverage.</li><li><strong>Apply on the National Scholarship Portal (NSP)</strong> — post-matric SC/ST scholarships open July–October each year.</li><li><strong>Research admission deadlines</strong> for the top 3 recommended colleges: AIIMS Bangalore, MUDALGI EDUCATION SOCIETYS ARTS AND COMM, MAHARANIS ARTS COLLEGE FOR WOMEN.</li><li><strong>Track entrance exam results / counseling rounds</strong>: NEET UG, CET Karnataka.</li><li><strong>Schedule mock interview practice</strong> with student. Most top colleges conduct interviews or counseling sessions.</li><li><strong>Review this report with the student</strong>. Confirm fit, preferences, and any concerns before applications.</li></ol>
+      </div>
+    </section>
+    
+
+<div class="fine-print">
+  <p><strong>Xavigate India Program Matcher</strong> · Report generated April 17, 2026</p>
+  <p>This is an informational report, not an admission guarantee. All fees, rankings, and placement figures should be verified with each institution directly.</p>
+  <p>SOS Children's Villages coordinator is encouraged to use this as a starting point for conversation with the student — not a directive.</p>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* ─── Design tokens (Dusk Ember palette) ─── */
+:root {
+  --thread-renergence: #0D1164;
+  --thread-structure:  #640D5F;
+  --thread-alignment:  #F78D60;
+  --thread-positioning:#EA2264;
+  --accent-renergence: #4A6FFF;
+  --accent-structure:  #C466BB;
+  --accent-positioning:#FF5A8A;
+  --cover-accent:      #B8D0FF;  /* pale sky blue, for use on dark cover only */
+
+  --text-primary:   #1e1a28;
+  --text-body:      #383340;
+  --text-secondary: #706878;
+  --text-muted:     #6b6272;
+  --text-quiet:     #827a89;
+
+  --surface-page:   #f7f4f6;
+  --surface-card:   #ffffff;
+  --surface-panel:  #eeebef;
+  --surface-tint-renergence: #e2e2f7;
+  --surface-tint-alignment:  #f7e8d8;
+
+  --border:         #e4dde2;
+  --divider:        #dad4d8;
+  --divider-light:  #f0ecee;
+}
+
+@page {
+  size: A4;
+  margin: 0.85in 0.8in 0.9in 0.8in;
+
+  @bottom-center {
+    content: counter(page);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 8.5pt;
+    color: var(--text-quiet);
+  }
+}
+
+@page :first {
+  margin: 0;
+  @bottom-center { content: none; }
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: var(--text-body);
+  background: var(--surface-card);
+  line-height: 1.55;
+  font-size: 10.5pt;
+  margin: 0;
+}
+
+/* ─── Cover page ─── */
+.cover {
+  page: first;
+  page-break-after: always;
+  background: linear-gradient(135deg, #0D1164 0%, #1a0d3d 50%, #640D5F 100%);
+  color: #ffffff;
+  padding: 2.4in 0.9in 1in 0.9in;
+  min-height: 11.7in;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.cover::before {
+  content: "";
+  position: absolute;
+  top: 1in;
+  left: 0.9in;
+  width: 60px;
+  height: 6px;
+  background: var(--cover-accent);
+}
+
+.cover-eyebrow {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 11pt;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cover-accent);
+  margin-bottom: 1em;
+}
+
+.cover-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 34pt;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 0.6em 0;
+  color: #ffffff;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.cover-subtitle {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 15pt;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 4em;
+  max-width: 5in;
+}
+
+.cover-meta {
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding-top: 1.2em;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 10pt;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.8;
+  position: absolute;
+  bottom: 1in;
+  left: 0.9in;
+  right: 0.9in;
+}
+
+/* ─── Headings ─── */
+h1, h2, h3, h4, h5 {
+  font-family: 'Libre Baskerville', serif;
+  color: var(--text-primary);
+  line-height: 1.25;
+  page-break-after: avoid;
+}
+
+h2 {
+  font-size: 20pt;
+  color: var(--thread-renergence);
+  margin: 1.6em 0 0.8em;
+  padding-bottom: 0.3em;
+  border-bottom: 3px solid var(--thread-alignment);
+}
+
+h2:first-of-type {
+  margin-top: 0.5em;
+}
+
+h3 {
+  font-size: 14pt;
+  color: var(--thread-structure);
+  margin: 1.8em 0 0.6em;
+  padding-bottom: 0.15em;
+  border-bottom: 1px solid var(--divider);
+}
+
+h4 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 11pt;
+  font-weight: 600;
+  color: var(--thread-renergence);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 1.4em 0 0.5em;
+}
+
+h5 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 1em 0 0.4em;
+}
+
+/* ─── Body ─── */
+p { margin: 0 0 0.75em; }
+
+strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+em {
+  font-style: italic;
+  color: var(--text-body);
+}
+
+a {
+  color: var(--thread-renergence);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-renergence);
+}
+
+/* ─── Lists ─── */
+ul, ol {
+  margin: 0.4em 0 0.9em 0;
+  padding-left: 1.3em;
+}
+
+li {
+  margin-bottom: 0.35em;
+}
+
+li::marker {
+  color: var(--thread-alignment);
+}
+
+/* ─── Tables ─── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0 1.3em;
+  font-size: 9.8pt;
+  page-break-inside: avoid;
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+}
+
+th {
+  background: var(--surface-panel);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 9.5pt;
+  text-align: left;
+  padding: 9px 12px;
+  border-bottom: 2px solid var(--thread-alignment);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--divider-light);
+  vertical-align: top;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:nth-child(even) td {
+  background: #fbf9fa;
+}
+
+td strong {
+  color: var(--thread-renergence);
+}
+
+/* ─── Blockquote (pitch line style) ─── */
+blockquote {
+  border-left: 4px solid var(--thread-alignment);
+  background: var(--surface-tint-alignment);
+  padding: 1em 1.2em;
+  margin: 1.2em 0;
+  color: var(--text-primary);
+  font-style: normal;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 11pt;
+  line-height: 1.5;
+  page-break-inside: avoid;
+}
+
+blockquote p {
+  margin: 0 0 0.5em;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+blockquote strong {
+  color: var(--thread-structure);
+}
+
+/* ─── Dividers ─── */
+hr {
+  border: none;
+  border-top: 1px solid var(--divider);
+  margin: 2em 0;
+}
+
+/* ─── Code ─── */
+code {
+  font-family: 'IBM Plex Mono', 'Menlo', monospace;
+  background: var(--surface-panel);
+  padding: 1px 5px;
+  border-radius: 2px;
+  font-size: 9pt;
+  color: var(--thread-structure);
+}
+
+/* ─── Section breaks ─── */
+h2 {
+  page-break-before: auto;
+}
+
+/* Part One / Part Two major breaks */
+h2[id^="part-"], h2:first-of-type {
+  page-break-before: auto;
+}
